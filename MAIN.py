@@ -22,6 +22,9 @@ class Analysis_Data:
    
     def full_name_of_min_salary(self):
        return self.Full_Names[self.Annual_Salarys.idxmin()]
+    def mean_data(self,data):
+        npdata=np.asarray(data)
+        return np.mean(npdata)
    
     def diplay2dplot(self):
             npx=np.asarray(self.Full_Names)
@@ -42,5 +45,6 @@ def main():
     ###->plot two of header list
     ##My_Analysis_Data.diplay2dplot()
     #My_Analysis_Data.boxplot(My_Analysis_Data.Annual_Salarys)
+    print("mean is = ",My_Analysis_Data.mean_data(My_Analysis_Data.Annual_Salarys))
 if __name__=="__main__":
     main()
