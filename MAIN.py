@@ -16,10 +16,13 @@ class Analysis_Data:
           self.Bonus=dataframe['Bonus %']
           self.Countrys=dataframe['Country']
           self.Citys=dataframe['City']
+          
     def full_name_of_max_salary(self):
        return self.Full_Names[self.Annual_Salarys.idxmax()]
+   
     def full_name_of_min_salary(self):
        return self.Full_Names[self.Annual_Salarys.idxmin()]
+   
     def diplay2dplot(self):
             npx=np.asarray(self.Full_Names)
             npy=np.asarray(self.Genders)
