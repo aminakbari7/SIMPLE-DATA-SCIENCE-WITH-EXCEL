@@ -16,12 +16,15 @@ class Analysis_Data:
           self.Bonus=dataframe['Bonus %']
           self.Countrys=dataframe['Country']
           self.Citys=dataframe['City']
-
+    def full_name_of_max_salary(self):
+       return self.Full_Names[self.Annual_Salarys.idxmax()],
 
 def main():
     dataframe = pd.read_excel('data.xlsx')
     My_Analysis_Data=Analysis_Data(dataframe= dataframe)
-    print(My_Analysis_Data.Ages)
-
+    
+    #####-> who get most salary?
+    print(My_Analysis_Data.full_name_of_max_salary())
+    
 if __name__=="__main__":
     main()
