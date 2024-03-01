@@ -28,8 +28,8 @@ class Analysis_Data:
             npy=np.asarray(self.Genders)
             plt.plot(npx,npy)
             plt.show()
-    def boxplot(self):
-            npdata=np.asarray(self.Annual_Salarys)
+    def boxplot(self,data):
+            npdata=np.asarray(data)
             plt.boxplot(npdata)
             plt.show()        
             
@@ -41,6 +41,6 @@ def main():
     #print("max salary = ",My_Analysis_Data.full_name_of_max_salary(),My_Analysis_Data.Annual_Salarys.max())
     ###->plot two of header list
     ##My_Analysis_Data.diplay2dplot()
-    #My_Analysis_Data.boxplot()
+    #My_Analysis_Data.boxplot(My_Analysis_Data.Annual_Salarys)
 if __name__=="__main__":
     main()
