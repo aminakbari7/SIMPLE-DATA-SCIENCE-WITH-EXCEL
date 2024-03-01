@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from scipy import stats
+import statistics
 import matplotlib.pyplot as plt
 class Analysis_Data:
     def __init__(self,dataframe):
@@ -31,6 +32,12 @@ class Analysis_Data:
     def mode_data(self,data):
         npdata=np.asarray(data)
         return stats.mode(npdata)
+    def variance_data(self,data):
+        npdata=np.asarray(data)
+        return statistics.variance(npdata)
+    
+    
+    
     def diplay2dplot(self):
             npx=np.asarray(self.Full_Names)
             npy=np.asarray(self.Genders)
@@ -51,6 +58,7 @@ def main():
     print("mean is = ",My_Analysis_Data.mean_data(My_Analysis_Data.Annual_Salarys))
     print("median is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
     print("mode is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
+    print("variance is = ",My_Analysis_Data.variance_data(My_Analysis_Data.Annual_Salarys))
 
 if __name__=="__main__":
     main()
