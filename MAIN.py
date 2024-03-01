@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from scipy import stats
 import matplotlib.pyplot as plt
 class Analysis_Data:
     def __init__(self,dataframe):
@@ -16,16 +17,20 @@ class Analysis_Data:
           self.Bonus=dataframe['Bonus %']
           self.Countrys=dataframe['Country']
           self.Citys=dataframe['City']
-          
+           
     def full_name_of_max_salary(self):
        return self.Full_Names[self.Annual_Salarys.idxmax()]
-   
     def full_name_of_min_salary(self):
        return self.Full_Names[self.Annual_Salarys.idxmin()]
     def mean_data(self,data):
         npdata=np.asarray(data)
         return np.mean(npdata)
-   
+    def median_data(self,data):
+        npdata=np.asarray(data)
+        return np.median(npdata)
+    def mode_data(self,data):
+        npdata=np.asarray(data)
+        return stats.mode(npdata)
     def diplay2dplot(self):
             npx=np.asarray(self.Full_Names)
             npy=np.asarray(self.Genders)
@@ -34,9 +39,7 @@ class Analysis_Data:
     def boxplot(self,data):
             npdata=np.asarray(data)
             plt.boxplot(npdata)
-            plt.show()        
-            
-            
+            plt.show()             
 def main():
     dataframe = pd.read_excel('data.xlsx')
     My_Analysis_Data=Analysis_Data(dataframe= dataframe)
@@ -46,5 +49,8 @@ def main():
     ##My_Analysis_Data.diplay2dplot()
     #My_Analysis_Data.boxplot(My_Analysis_Data.Annual_Salarys)
     print("mean is = ",My_Analysis_Data.mean_data(My_Analysis_Data.Annual_Salarys))
+    print("median is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
+    print("mode is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
+
 if __name__=="__main__":
     main()
