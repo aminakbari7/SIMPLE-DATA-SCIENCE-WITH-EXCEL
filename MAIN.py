@@ -1,24 +1,27 @@
 import pandas as pd
-###########---> read file
-dataframe1 = pd.read_excel('data.xlsx')
-
-#########-->first get header xlsx
-Full_Names=dataframe1['Full Name']
-Job_Titles=dataframe1['Job Title']
-Departments=dataframe1['Department']
-Business_Units=dataframe1['Business Unit']
-Genders=dataframe1['Gender']
-Ethnicitys=dataframe1['Ethnicity']
-Ages=dataframe1['Age']
-Hire_Dates=dataframe1['Hire Date']
-Annual_Salarys=dataframe1['Annual Salary']
-Bonus=dataframe1['Bonus %']
-Countrys=dataframe1['Country']
-Citys=dataframe1['City']
 
 
+class Analysis_Data:
+    def __init__(self,dataframe, ):
+          self.dataframe = dataframe
+          self.Full_Names=dataframe['Full Name']
+          self.Job_Titles=dataframe['Job Title']
+          self.Departments=dataframe['Department']
+          self.Business_Units=dataframe['Business Unit']
+          self.Genders=dataframe['Gender']
+          self.Ethnicitys=dataframe['Ethnicity']
+          self.Ages=dataframe['Age']
+          self.Hire_Dates=dataframe['Hire Date']
+          self.Annual_Salarys=dataframe['Annual Salary']
+          self.Bonus=dataframe['Bonus %']
+          self.Countrys=dataframe['Country']
+          self.Citys=dataframe['City']
 
 
+def main():
+    dataframe = pd.read_excel('data.xlsx')
+    My_Analysis_Data=Analysis_Data(dataframe= dataframe)
+    print(My_Analysis_Data.Ages)
 
-
-print(dataframe1['Full Name'])
+if __name__=="__main__":
+    main()
