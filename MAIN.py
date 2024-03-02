@@ -55,10 +55,10 @@ def main():
     ###->plot two of header list
     ##My_Analysis_Data.diplay2dplot()
     #My_Analysis_Data.boxplot(My_Analysis_Data.Annual_Salarys)
-    print("mean is = ",My_Analysis_Data.mean_data(My_Analysis_Data.Annual_Salarys))
-    print("median is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
-    print("mode is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
-    print("variance is = ",My_Analysis_Data.variance_data(My_Analysis_Data.Annual_Salarys))
-
+    #print("mean is = ",My_Analysis_Data.mean_data(My_Analysis_Data.Annual_Salarys))
+    #print("median is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
+    #print("mode is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
+    #print("variance is = ",My_Analysis_Data.variance_data(My_Analysis_Data.Annual_Salarys))
+    print(My_Analysis_Data.dataframe["Full Name"])
 if __name__=="__main__":
     main()
