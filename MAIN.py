@@ -78,7 +78,8 @@ def main():
     #print(My_Analysis_Data.dataframe["Full Name"])
     
     #print("list of jobs = \n",My_Analysis_Data.give_unique_values_of_list(My_Analysis_Data.Job_Titles))
-    print(My_Analysis_Data.find_outliers(My_Analysis_Data.Annual_Salarys,1))
+    #print(My_Analysis_Data.find_outliers(My_Analysis_Data.Annual_Salarys,1))
+    
     
 if __name__=="__main__":
     main()
