@@ -4,6 +4,7 @@ from scipy import stats
 import statistics
 from sklearn import tree
 import matplotlib.pyplot as plt
+from sklearn import preprocessing
 class Analysis_Data:
     def __init__(self,dataframe):
           self.dataframe = dataframe
@@ -59,17 +60,21 @@ class Analysis_Data:
                 outliers.append(x)
         return outliers 
     
+    
+    def normalize(self,data): #if you want normalize yor list
+        npdata=np.asarray(data)
+        normalized_arr = preprocessing.normalize([npdata])
+        
     def Decision_Trees(self,):
-        X = [[0, 0], [1, 1]]
-        Y = [0, 1]
         clf = tree.DecisionTreeClassifier()
-        clf = clf.fit(X, Y)
-        clf.predict([[2., 2.]])
+        clf = clf.fit(0, 0)
 def main():
     
     ###------------read file and set class
     dataframe = pd.read_excel('data.xlsx')
     My_Analysis_Data=Analysis_Data(dataframe= dataframe)
+    #print(My_Analysis_Data.dataframe.columns)
+    #print(My_Analysis_Data.dataframe.head)
     
     ###->plot two of header list
     ##My_Analysis_Data.diplay2dplot()
@@ -87,6 +92,6 @@ def main():
     #print("list of jobs = \n",My_Analysis_Data.give_unique_values_of_list(My_Analysis_Data.Job_Titles))
     #print(My_Analysis_Data.find_outliers(My_Analysis_Data.Annual_Salarys,1))
     #My_Analysis_Data.Decision_Trees()
-    
+
 if __name__=="__main__":
     main()
