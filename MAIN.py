@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 import statistics
-
+from sklearn import tree
 import matplotlib.pyplot as plt
 class Analysis_Data:
     def __init__(self,dataframe):
@@ -58,6 +58,13 @@ class Analysis_Data:
             if abs(z_score) > threshold:
                 outliers.append(x)
         return outliers 
+    
+    def Decision_Trees(self,):
+        X = [[0, 0], [1, 1]]
+        Y = [0, 1]
+        clf = tree.DecisionTreeClassifier()
+        clf = clf.fit(X, Y)
+        clf.predict([[2., 2.]])
 def main():
     
     ###------------read file and set class
@@ -79,7 +86,7 @@ def main():
     
     #print("list of jobs = \n",My_Analysis_Data.give_unique_values_of_list(My_Analysis_Data.Job_Titles))
     #print(My_Analysis_Data.find_outliers(My_Analysis_Data.Annual_Salarys,1))
-    
+    #My_Analysis_Data.Decision_Trees()
     
 if __name__=="__main__":
     main()
