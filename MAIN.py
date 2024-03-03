@@ -35,9 +35,6 @@ class Analysis_Data:
     def variance_data(self,data):
         npdata=np.asarray(data)
         return statistics.variance(npdata)
-    
-    
-    
     def diplay2dplot(self):
             npx=np.asarray(self.Full_Names)
             npy=np.asarray(self.Genders)
@@ -46,10 +43,19 @@ class Analysis_Data:
     def boxplot(self,data):
             npdata=np.asarray(data)
             plt.boxplot(npdata)
-            plt.show()             
+            plt.show()    
+    def give_unique_values_of_list(self,data):
+        return set(data)     
 def main():
+    
+    ###------------read file and set class
     dataframe = pd.read_excel('data.xlsx')
     My_Analysis_Data=Analysis_Data(dataframe= dataframe)
+    
+    
+    
+    
+    
     #print("min salary = ",My_Analysis_Data.full_name_of_min_salary(),My_Analysis_Data.Annual_Salarys.min())
     #print("max salary = ",My_Analysis_Data.full_name_of_max_salary(),My_Analysis_Data.Annual_Salarys.max())
     ###->plot two of header list
@@ -59,6 +65,8 @@ def main():
     #print("median is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
     #print("mode is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
     #print("variance is = ",My_Analysis_Data.variance_data(My_Analysis_Data.Annual_Salarys))
-    print(My_Analysis_Data.dataframe["Full Name"])
+    #print(My_Analysis_Data.dataframe["Full Name"])
+    #print("list of jobs = \n",My_Analysis_Data.give_unique_values_of_list(My_Analysis_Data.Job_Titles))
+    
 if __name__=="__main__":
     main()
