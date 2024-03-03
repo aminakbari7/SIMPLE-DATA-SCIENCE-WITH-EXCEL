@@ -45,28 +45,39 @@ class Analysis_Data:
             plt.boxplot(npdata)
             plt.show()    
     def give_unique_values_of_list(self,data):
-        return set(data)     
+        return set(data) 
+    
+    def find_outliers(self,data,threshold):
+        nplist=np.asarray(data)
+        mean = np.mean(data)
+        std = np.std(data)
+        outliers = []
+        for x in data:
+            z_score = (x - mean) / std
+            if abs(z_score) > threshold:
+                outliers.append(x)
+        return outliers 
 def main():
     
     ###------------read file and set class
     dataframe = pd.read_excel('data.xlsx')
     My_Analysis_Data=Analysis_Data(dataframe= dataframe)
     
-    
-    
+    ###->plot two of header list
+    ##My_Analysis_Data.diplay2dplot()
+    #My_Analysis_Data.boxplot(My_Analysis_Data.Annual_Salarys)
     
     
     #print("min salary = ",My_Analysis_Data.full_name_of_min_salary(),My_Analysis_Data.Annual_Salarys.min())
     #print("max salary = ",My_Analysis_Data.full_name_of_max_salary(),My_Analysis_Data.Annual_Salarys.max())
-    ###->plot two of header list
-    ##My_Analysis_Data.diplay2dplot()
-    #My_Analysis_Data.boxplot(My_Analysis_Data.Annual_Salarys)
     #print("mean is = ",My_Analysis_Data.mean_data(My_Analysis_Data.Annual_Salarys))
     #print("median is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
     #print("mode is = ",My_Analysis_Data.median_data(My_Analysis_Data.Annual_Salarys))
     #print("variance is = ",My_Analysis_Data.variance_data(My_Analysis_Data.Annual_Salarys))
     #print(My_Analysis_Data.dataframe["Full Name"])
+    
     #print("list of jobs = \n",My_Analysis_Data.give_unique_values_of_list(My_Analysis_Data.Job_Titles))
+    print(My_Analysis_Data.find_outliers(My_Analysis_Data.Annual_Salarys,1))
     
 if __name__=="__main__":
     main()
